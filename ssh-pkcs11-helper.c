@@ -206,6 +206,7 @@ process_sign(void)
 		if ((found = lookup_key(key)) != NULL) {
 #ifdef WITH_OPENSSL
 			int ret;
+			pkcs11_refresh_key(found);
 
 			if (key->type == KEY_RSA) {
 				slen = RSA_size(key->rsa);
